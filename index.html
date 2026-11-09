@@ -1,0 +1,1133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Comercio Exterior · 2do Parcial — Mis apuntes (solo lo que entra)</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 rx=%2712%27 fill=%27%23143a5e%27/%3E%3Ctext x=%2732%27 y=%2744%27 font-family=%27Georgia,serif%27 font-size=%2730%27 font-weight=%27700%27 fill=%27%23f3f1ea%27 text-anchor=%27middle%27%3ECE%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,500&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f3f1ea;--paper-2:#ebe7dc;--ink:#1b2129;--ink-soft:#4b535c;--line:#cbc4b2;
+    --u1:#1b4d8c;--u2:#8c3b1b;--u3:#2f6b3a;--brand:#143a5e;--gold:#c9a44a;--red:#a04a2b;
+    --ok:#1f5a3c;--ok-soft:#dfe8e2;--no:#a04a2b;--no-soft:#f3dcd6;
+    --seguro:#7a5a0e;--seguro-soft:#faf1d9;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--paper);color:var(--ink);font-family:"Atkinson Hyperlegible","Segoe UI",Verdana,sans-serif;font-size:17px;line-height:1.58;-webkit-font-smoothing:antialiased;position:relative}
+  body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+    mix-blend-mode:multiply;opacity:.6}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 28px;position:relative;z-index:1}
+
+  nav{position:sticky;top:0;z-index:50;background:rgba(243,241,234,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .nav-inner{max-width:1100px;margin:0 auto;padding:12px 28px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+  .nav-brand{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft);margin-right:auto;font-weight:700}
+  .chip{font-family:"JetBrains Mono",monospace;font-size:12px;font-weight:700;text-decoration:none;color:var(--ink);border:1.5px solid var(--ink);border-radius:999px;padding:5px 12px;transition:all .18s ease;background:transparent}
+  .chip:hover{background:var(--ink);color:var(--paper);transform:translateY(-2px)}
+
+  header.hero{padding:80px 0 50px;border-bottom:3px solid var(--ink)}
+  .eyebrow{font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--brand);font-weight:700}
+  h1{font-family:"Fraunces",serif;font-weight:900;font-size:clamp(44px,8vw,104px);line-height:.92;letter-spacing:-.02em;margin:14px 0 0}
+  h1 em{font-style:italic;font-weight:500;color:var(--brand)}
+  .hero-meta{display:flex;gap:36px;flex-wrap:wrap;margin-top:34px;font-family:"JetBrains Mono",monospace;font-size:13px}
+  .hero-meta b{display:block;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);font-weight:700;margin-bottom:4px}
+  .hero-meta span{font-size:20px;font-family:"Fraunces",serif;font-weight:600;color:var(--ink)}
+  .hero-lead{max-width:760px;margin-top:30px;font-size:20px;color:var(--ink-soft);line-height:1.5}
+  .hero-lead b{color:var(--ink);font-weight:700}
+  .legend{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+  .lvl{font-family:"JetBrains Mono",monospace;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;border-radius:999px;padding:3px 10px;border:1.5px solid}
+  .lvl.s{color:var(--seguro);border-color:var(--seguro);background:var(--seguro-soft)}
+  .lvl.m{color:var(--u1);border-color:var(--u1);background:#e6edf8}
+  .lvl.p{color:var(--ink-soft);border-color:var(--ink-soft);background:#fff}
+
+  section.unit{padding:60px 0;border-bottom:1px solid var(--line)}
+  .unit-head{display:flex;align-items:baseline;gap:20px;margin-bottom:14px}
+  .unit-num{font-family:"Fraunces",serif;font-weight:900;font-size:clamp(60px,11vw,130px);line-height:.8;color:var(--accent);opacity:.9;letter-spacing:-.04em}
+  .unit-titles .u-kicker{font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);font-weight:700}
+  .unit-titles h2{font-family:"Fraunces",serif;font-weight:600;font-size:clamp(28px,4.5vw,48px);line-height:1.02;letter-spacing:-.01em;margin-top:6px}
+  .unit-weight{font-family:"JetBrains Mono",monospace;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#fff;background:var(--accent);border-radius:999px;padding:4px 11px;display:inline-block;margin-bottom:26px}
+
+  .card{background:var(--paper-2);border:1.5px solid var(--line);border-radius:14px;padding:24px 28px;margin-bottom:18px;position:relative;overflow:hidden}
+  .card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--accent)}
+  .h-main{font-family:"Fraunces",serif;font-weight:600;font-size:23px;margin-bottom:10px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  .h-main .dot{width:9px;height:9px;border-radius:50%;background:var(--accent);flex:none}
+  .h-main .tag{margin-left:auto;font-family:"JetBrains Mono",monospace;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);border:1.5px solid var(--accent);border-radius:999px;padding:3px 9px}
+  .h-sub{font-family:"Fraunces",serif;font-weight:600;font-size:18px;color:var(--accent);margin:20px 0 6px;text-decoration:underline;text-decoration-color:var(--accent);text-underline-offset:4px}
+  .def{margin-bottom:4px}
+  .def b{font-weight:700}
+  .simple{font-size:15.5px;color:var(--ink-soft);margin:4px 0 6px;padding-left:14px;border-left:3px solid var(--line)}
+  .simple b{font-weight:700;color:var(--ink)}
+  .simple > b:first-child{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+  .fbox{font-family:"Fraunces",serif;font-weight:600;font-size:20px;text-align:center;background:var(--accent);color:#fff;border-radius:11px;padding:14px 18px;margin:14px 0;line-height:1.35}
+  .fbox small{display:block;font-family:"Atkinson Hyperlegible",sans-serif;font-weight:400;font-size:13px;opacity:.92;margin-top:6px}
+
+  ul{list-style:none;margin-top:6px}
+  ul li{padding:5px 0 5px 24px;position:relative}
+  ul li::before{content:"–";position:absolute;left:4px;color:var(--accent);font-weight:700}
+  ul li b{font-weight:700}
+  ul.sub{margin:2px 0 2px 24px}
+  ul.sub li{font-size:15.5px;color:var(--ink-soft)}
+
+  ol{list-style:none;counter-reset:s;margin-top:6px}
+  ol li{counter-increment:s;padding:5px 0 5px 36px;position:relative}
+  ol li::before{content:counter(s);position:absolute;left:0;top:6px;font-family:"JetBrains Mono",monospace;font-weight:700;font-size:12px;background:var(--accent);color:#fff;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
+  @media(max-width:920px){.grid3{grid-template-columns:1fr 1fr}}
+  @media(max-width:720px){.grid2,.grid3{grid-template-columns:1fr}.unit-head{flex-direction:column;gap:6px}.wrap{padding:0 18px}.nav-inner,.nav-chips{padding-left:18px;padding-right:18px}.fbox{font-size:16px;padding:12px 10px}.card{padding:20px 18px}.fgrid{grid-template-columns:1fr}.tbl-scroll table.eco{min-width:560px}}
+
+  .mini{background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:16px 18px}
+  .mini b{font-family:"Fraunces",serif;font-weight:600;color:var(--accent)}
+  .mini ul{margin-top:4px}
+  .mini ul li{padding:3px 0 3px 20px;font-size:15.5px}
+  .mini.danger{border-color:var(--no);background:var(--no-soft)}
+  .mini.danger b,.mini.danger ul li::before{color:var(--no)}
+  .mini.okk{border-color:var(--ok);background:var(--ok-soft)}
+  .mini.okk b,.mini.okk ul li::before{color:var(--ok)}
+  .mini .num{font-family:"JetBrains Mono",monospace;font-size:11px;font-weight:700;color:var(--accent);letter-spacing:.1em;display:block;margin-bottom:2px}
+  .mini .hint{display:block;margin-top:8px;font-size:14px;color:var(--ink-soft);border-top:1px dashed var(--line);padding-top:6px}
+  .mini .hint b{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft)}
+
+  table.eco{width:100%;border-collapse:collapse;font-size:15px;margin-top:10px}
+  table.eco th{background:var(--accent);color:#fff;padding:8px 10px;text-align:left;font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.04em;text-transform:uppercase}
+  table.eco td{padding:7px 10px;border-bottom:1px solid var(--line);background:#fff;vertical-align:top}
+  table.eco tr:nth-child(even) td{background:var(--paper)}
+  table.eco td b{font-weight:700}
+  table.eco td.soft{color:var(--ink-soft);font-size:14px}
+  table.eco td.num{text-align:right;font-family:"JetBrains Mono",monospace;font-size:14px;white-space:nowrap}
+  .tbl-scroll{overflow-x:auto}
+  .mono{font-family:"JetBrains Mono",monospace;font-size:.92em}
+
+  .note{background:#fff;border-left:4px solid var(--accent);border-radius:0 10px 10px 0;padding:12px 16px;font-size:15px;color:var(--ink-soft);margin-top:12px}
+  .note b{color:var(--ink)}
+  .star{background:#fff;border:2px solid var(--gold);border-radius:12px;padding:14px 18px;margin-top:14px}
+  .star .lbl{font-family:"JetBrains Mono",monospace;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#8a6a1c;display:block;margin-bottom:5px}
+  .star ul li::before{color:#8a6a1c}
+  .quote{font-family:"Fraunces",serif;font-style:italic;font-weight:500;font-size:16.5px;color:var(--ink-soft);border-left:3px solid var(--gold);padding:6px 14px;margin:10px 0 4px}
+  .quote b{font-style:normal;color:var(--ink)}
+  .chain{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:10px 0 6px;font-family:"JetBrains Mono",monospace;font-size:12.5px;font-weight:700}
+  .chain span{background:#fff;border:1.5px solid var(--accent);color:var(--accent);border-radius:8px;padding:5px 10px}
+  .chain i{font-style:normal;color:var(--ink-soft)}
+  .chain span.soft{border-style:dashed;color:var(--ink-soft)}
+  details.ej{background:#fff;border:1.5px dashed var(--line);border-radius:12px;padding:12px 18px;margin-top:14px}
+  details.ej summary{cursor:pointer;font-family:"JetBrains Mono",monospace;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+  details.ej p{margin-top:8px}
+
+  .fgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:14px;margin-top:10px}
+  .fcard{background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:14px 16px}
+  .fcard .lbl{font-family:"JetBrains Mono",monospace;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:6px}
+  .fcard .f{font-family:"Fraunces",serif;font-weight:600;font-size:17px;color:var(--ink);line-height:1.35}
+  .fcard .d{font-size:14.5px;color:var(--ink-soft);margin-top:8px}
+  .fcard .d b{color:var(--ink)}
+  .fcard .pts{float:right;font-family:"JetBrains Mono",monospace;font-size:10px;font-weight:700;color:#fff;background:var(--accent);border-radius:999px;padding:2px 8px}
+
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  footer{padding:60px 0 90px;text-align:center}
+  footer p{font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-soft)}
+
+  .modes{display:flex;gap:4px;background:var(--paper-2);border:1.5px solid var(--line);border-radius:999px;padding:4px;margin-left:auto}
+  .modes button{font-family:"JetBrains Mono",monospace;font-size:12px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-soft);background:transparent;border:0;cursor:pointer;padding:6px 14px;border-radius:999px;transition:.16s}
+  .modes button:hover{color:var(--ink)}
+  .modes button.active{background:var(--ink);color:var(--paper)}
+  .nav-chips{max-width:1100px;margin:0 auto;padding:0 28px 12px;display:flex;gap:8px;flex-wrap:wrap}
+  .hidden{display:none!important}
+  .modeview{padding-bottom:40px}
+
+  .qwrap{max-width:760px;margin:46px auto 0}
+  .qtop{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:20px;font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--ink-soft);letter-spacing:.04em}
+  .qtop b{color:var(--brand)}
+  .qcard{background:var(--paper-2);border:1.5px solid var(--line);border-radius:16px;padding:28px;position:relative;overflow:hidden}
+  .qcard::before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--accent,var(--brand))}
+  .qcard .qgroup{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent,var(--brand));font-weight:700}
+  .qcard .qq{font-family:"Fraunces",serif;font-weight:600;font-size:24px;line-height:1.22;margin:10px 0 22px}
+  .opt{display:block;width:100%;text-align:left;cursor:pointer;border:1.5px solid var(--line);background:var(--paper);color:var(--ink);border-radius:11px;padding:14px 16px;margin-bottom:10px;font-size:16px;font-family:"Atkinson Hyperlegible",sans-serif;line-height:1.4;transition:.14s}
+  .opt:hover:not(:disabled){border-color:var(--ink)}
+  .opt:disabled{cursor:default}
+  .opt.correct{border-color:var(--ok);background:var(--ok-soft)}
+  .opt.wrong{border-color:var(--no);background:var(--no-soft)}
+  .opt .mk{float:right;font-family:"JetBrains Mono",monospace;font-weight:700;margin-left:10px}
+  .qactions{margin-top:6px;display:flex;justify-content:flex-end;gap:10px}
+  .btn{font-family:"JetBrains Mono",monospace;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;background:var(--ink);color:var(--paper);border:0;padding:11px 20px;border-radius:10px;transition:.15s}
+  .btn:hover{filter:brightness(1.25)}
+  .btn.ghost{background:transparent;color:var(--ink-soft);box-shadow:inset 0 0 0 1.5px var(--line)}
+  .btn.ghost:hover{color:var(--ink)}
+  .fb{font-family:"JetBrains Mono",monospace;font-size:13px;margin:14px 0 2px;min-height:18px}
+  .fb.ok{color:var(--ok)}.fb.no{color:var(--no)}
+  .esc-input{width:100%;min-height:130px;resize:vertical;background:var(--paper);border:1.5px solid var(--line);border-radius:12px;color:var(--ink);font-family:"Atkinson Hyperlegible",sans-serif;font-size:17px;line-height:1.55;padding:14px 16px;margin-bottom:14px}
+  .esc-input:focus{outline:none;border-color:var(--accent,var(--brand))}
+  .esc-input:disabled{opacity:.65}
+  .esc-answer{margin-top:18px;border-top:1px solid var(--line);padding-top:16px}
+  .esc-lbl{font-family:"JetBrains Mono",monospace;font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:var(--ink-soft);display:block;margin-bottom:6px;font-weight:700}
+  .esc-yours p{font-size:16px;color:var(--ink-soft);background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:10px 14px;white-space:pre-wrap;margin:0}
+  .esc-ok{border-left:4px solid var(--ok);padding-left:14px;margin-top:16px}
+  .esc-ok .ans{font-size:17px;margin:0}
+  .esc-rate{font-family:"JetBrains Mono",monospace;font-size:13px;color:var(--ink-soft);display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:16px}
+  .esc-rate .rate{font-family:"JetBrains Mono",monospace;font-size:12px;font-weight:700;cursor:pointer;background:var(--paper-2);border:1.5px solid var(--line);color:var(--ink);padding:8px 14px;border-radius:8px;transition:.14s}
+  .esc-rate .rate:hover{border-color:var(--accent,var(--brand));color:var(--accent,var(--brand))}
+
+  @media(max-width:720px){
+    body::before{display:none}
+    nav{backdrop-filter:none;background:rgba(243,241,234,.97)}
+    .reveal{transition-duration:.35s}
+    .nav-brand{display:none}
+    .nav-inner{padding:8px 14px}
+    .modes{margin:0 auto}
+    .modes button{padding:5px 12px;font-size:11px}
+    .nav-chips{flex-wrap:nowrap;overflow-x:auto;padding:0 14px 8px;gap:6px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+    .nav-chips::-webkit-scrollbar{display:none}
+    .chip{flex:none;white-space:nowrap;padding:4px 10px;font-size:11px}
+  }
+
+  @media print{
+    nav{display:none}
+    body::before{display:none}
+    .reveal{opacity:1;transform:none}
+    section.unit{padding:24px 0;break-inside:auto}
+    .card{break-inside:avoid;background:#fff}
+    #view-quiz,#view-escribir{display:none!important}
+  }
+</style>
+<style>
+  /* --- extras para la transcripción del cuaderno --- */
+  .xlink{display:inline-block;margin-top:22px;font-family:"JetBrains Mono",monospace;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--brand);text-decoration:none;border-bottom:2px solid var(--brand);padding-bottom:2px}
+  .xlink:hover{color:var(--ink);border-color:var(--ink)}
+  .fuera{margin-top:16px;font-size:14.5px;color:var(--ink-soft);background:#fff;border:1px dashed var(--line);border-radius:10px;padding:10px 14px;max-width:760px}
+  .fuera b{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft)}
+  .hoja{display:inline-block;font-family:"JetBrains Mono",monospace;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);border:1.5px dashed var(--ink-soft);border-radius:999px;padding:3px 10px;margin:4px 0 14px;background:#fff}
+  .margen{font-family:"Fraunces",serif;font-style:italic;color:var(--ink-soft);font-size:15px;background:#fff;border:1px dashed var(--line);border-radius:10px;padding:8px 14px;margin-bottom:14px}
+  .margen b{font-style:normal;font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);margin-right:8px}
+  .tachado{text-decoration:line-through;color:var(--ink-soft)}
+  .def .mk,li .mk{font-family:"JetBrains Mono",monospace;font-weight:700;margin-right:6px}
+  .mk.ok{color:var(--ok)}.mk.no{color:var(--no)}
+  .llave{border-left:3px solid var(--accent);margin:8px 0;padding-left:8px}
+  .llave .llave-lbl{font-family:"JetBrains Mono",monospace;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);display:block;margin:2px 0 0 24px}
+  .blank{display:inline-block;min-width:80px;border-bottom:1.5px solid var(--ink-soft);vertical-align:baseline;margin:0 4px}
+  .pir{display:flex;gap:22px;align-items:stretch}
+  .pir svg{flex:none;width:120px;height:auto}
+  .pir ol{flex:1;margin-top:0}
+  .org-top{font-family:"Fraunces",serif;font-weight:600;font-size:18px;color:var(--accent);border:1.5px solid var(--accent);border-radius:10px;padding:6px 18px;display:inline-block;margin:6px 0 10px}
+  .org-note{font-family:"Fraunces",serif;font-style:italic;font-size:14px;color:var(--ink-soft);display:block;margin-top:6px}
+  ul.sub2{margin:2px 0 2px 48px}
+  ul.sub2 li{font-size:15px;color:var(--ink-soft)}
+  @media(max-width:720px){.pir{flex-direction:column}.pir svg{width:90px}}
+</style>
+<style>
+  .src{display:inline-block;font-family:"JetBrains Mono",monospace;font-size:9.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;border-radius:999px;padding:2px 8px;border:1.5px solid;vertical-align:middle}
+  .h-main .src{margin-left:auto}
+  .src.hoja{color:var(--ok);border-color:var(--ok);background:var(--ok-soft)}
+  .src.clase{color:#8a6a1c;border-color:#c9a44a;background:#faf1d9}
+  .note .src,li .src{margin-right:6px}
+  h3.grp{font-family:"Fraunces",serif;font-weight:600;font-size:clamp(22px,3vw,30px);margin:34px 0 8px;padding-top:18px;border-top:1px solid var(--line);color:var(--ink)}
+  h3.grp:first-of-type{border-top:0;padding-top:0;margin-top:10px}
+  .mini.okk ul li::before{content:none}
+  .mini.okk ul li{padding-left:4px}
+  .soft-i{color:var(--ink-soft);font-style:italic}
+  .src.xtag{color:#7a4a9c;border-color:#7a4a9c;background:#f1e8f7}
+  #view-resumen .x{display:none!important}
+  #view-completo .card.x{border:1.5px dashed #7a4a9c;background:#fbf8fd}
+  #view-completo .card.x::before{background:#7a4a9c}
+  #view-completo .card.x .h-main::after{content:"Extra";font-family:"JetBrains Mono",monospace;font-size:9.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#7a4a9c;border:1.5px solid #7a4a9c;background:#f1e8f7;border-radius:999px;padding:2px 8px}
+  #view-completo div.x:not(.card),#view-completo details.x{border:1.5px dashed #7a4a9c;border-radius:10px;padding:8px 10px;margin-top:10px}
+  #view-completo li.x{color:#5c3a76}
+  #view-completo li.x::after{content:" · extra";font-family:"JetBrains Mono",monospace;font-size:10px;color:#7a4a9c}
+  #view-completo .hero-c{font-family:"JetBrains Mono",monospace;font-size:12px;color:#7a4a9c;margin:30px 0 0;letter-spacing:.06em}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <span class="nav-brand">Comercio Exterior · 2do Parcial</span>
+    <div class="modes" id="modes">
+      <button data-mode="resumen" class="active">Resumen</button>
+      <button data-mode="completo">Completo</button>
+      <button data-mode="quiz">Quiz</button>
+      <button data-mode="escribir">Escribir</button>
+    </div>
+  </div>
+  <div class="nav-chips" id="navchips">
+    <a class="chip" href="#p1">Unidad 4 · Exportación</a><a class="chip" href="#p2">Unidad 5 · Transporte y seguros</a><a class="chip" href="#p3">Unidad 6 · Bancos</a>
+  </div>
+  <div class="nav-chips" id="navchips-c" style="display:none">
+    <a class="chip" href="#c1">Unidad 4 · Exportación</a><a class="chip" href="#c2">Unidad 5 · Transporte y seguros</a><a class="chip" href="#c3">Unidad 6 · Bancos</a>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <header class="hero">
+    <p class="eyebrow">Mis apuntes · 2do Parcial · Solo lo que entra</p>
+    <h1>Comercio Exterior<br><em>2do Parcial</em></h1>
+    <p class="hero-lead"><b>Lo que el profesor dijo textual que entra:</b> "4 completa, 5 completa y la 6 hasta cobranza" (03/11). En <b>Resumen</b>, lo justo: solo lo que él nombró como pregunta. En <b>Completo</b>, todo lo dado en clase, con lo que no nombró marcado <span class="src xtag">Extra</span>. Solo teoría: el práctico (destinación de exportación, estructura de la guía) se practica en los simulacros de NotebookLM. La base son mis 6 hojas (desde el 20/10). Lo que no anoté (U4 y la parte de transporte) sale de las grabaciones y lleva la marca <span class="src clase">De la clase</span>. Lo que viene de mis hojas lleva <span class="src hoja">Mis hojas</span>.</p>
+    <div class="fuera"><b>No entra (lo dijo textual):</b> carta de crédito · seguro de cambio · medidas de los contenedores · práctico de delitos e infracciones · destinaciones de importación (U3).<br><b>Afuera porque dijo que no lo pregunta:</b> tipos de contenedor ("no sería ese") · hoja de ruta ("no suelo preguntar") · OM-1993 y ruptura de carga ("en el examen libre").<br><b>Afuera por no ser concreto ("podría", "capaz"):</b> el cheque · los prácticos de la U6 · el caso práctico de transporte y seguro (TP 10).</div>
+    <div class="hero-meta">
+      
+      <div><b>Unidades</b><span>4 · 5 · 6</span></div>
+      <div><b>Parcial</b><span>Martes 10/11</span></div>
+    </div>
+  </header>
+
+  <div id="view-resumen">
+
+  <!-- 01 · DESTINACIONES -->
+  <section class="unit reveal" id="p1" style="--accent:var(--u3)">
+    <div class="unit-head"><div class="unit-num">04</div>
+      <div class="unit-titles"><p class="u-kicker">Unidad 4</p><h2>Exportación</h2></div></div>
+    <h3 class="grp">Destinaciones de exportación</h3>
+    <span class="unit-weight">"sí o sí" · "como el padre nuestro"</span>
+
+
+    <div class="card">
+      <p class="h-main"><span class="dot"></span>Exportación y clasificación<span class="src clase">De la clase</span></p>
+      <p class="def"><b>Exportación:</b> extracción de cualquier mercadería de un territorio aduanero.</p>
+      <ul>
+        <li><b>Definitiva:</b> permanece fuera por tiempo indeterminado.</li>
+        <li><b>Suspensiva:</b> permanece fuera por un tiempo determinado y se suspende el pago de los derechos.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <p class="h-main"><span class="dot"></span>Las cuatro destinaciones<span class="src clase">De la clase</span></p>
+      <ul>
+        <li><b>Definitiva de exportación para consumo:</b> fuera por tiempo indeterminado; no vuelve. Sí o sí grava derechos.</li>
+        <li><b>Suspensiva de exportación temporaria:</b> sale por un tiempo y debe ser <b>reimportada</b> antes del plazo (por uso o transformación). Si no vuelve, paga derecho.</li>
+        <li><b>Suspensiva de tránsito de exportación:</b> pasa por dos aduanas: de una <b>aduana interior</b> a una <b>aduana de salida</b>.</li>
+        <li><b>Suspensiva de removido:</b> sale del territorio aduanero <b>sin salir del país</b>. No paga derecho. Supuestos: mar argentino · ríos internacionales · territorio aduanero especial.</li>
+      </ul>
+      <p class="note"><b>Régimen especial de muestras:</b> mercadería sin cargo como muestra; no va ni para consumo ni temporaria y no grava derechos.</p>
+    </div>
+
+    <div class="card">
+      <p class="h-main"><span class="dot"></span>Plazos de la temporaria<span class="src clase">De la clase</span></p>
+      <div class="grid3">
+        <div class="mini"><span class="num">3 AÑOS</span><b>Bienes de capital</b></div>
+        <div class="mini"><span class="num">1 AÑO</span><b>Eventos, muestras comerciales y espectáculos</b></div>
+        <div class="mini"><span class="num">2 AÑOS</span><b>Transformación o perfeccionamiento</b></div>
+      </div>
+      <p class="note">No confundir con la importación (8 meses muestras · 1 año espectáculos): "es cero punto".</p>
+    </div>
+  </section>
+
+  <section class="unit reveal" id="p2" style="--accent:var(--u1)">
+    <div class="unit-head"><div class="unit-num">05</div>
+      <div class="unit-titles"><p class="u-kicker">Unidad 5</p><h2>Transporte y seguros</h2></div></div>
+    <h3 class="grp">Transporte</h3>
+    <span class="unit-weight">"qué es el transporte" · "ventajas y desventajas: es mi comodín"</span>
+
+
+    <div class="card">
+      <p class="h-main"><span class="dot"></span>Qué es y medios<span class="src clase">De la clase</span></p>
+      <p class="def"><b>Transporte:</b> traslado de un bien de un sitio a otro que agrega valor.</p>
+      <p class="def"><b>Medios:</b> marítimo · terrestre (carretero y ferroviario) · aéreo · multimodal.</p>
+    </div>
+
+    <div class="card">
+      <p class="h-main"><span class="dot"></span>Ventajas y desventajas<span class="src clase">De la clase</span></p>
+      <div class="grid2">
+        <div class="mini okk"><b>Marítimo</b><ul><li>+ Mayor volumen; grandes distancias; menos costoso</li><li>+ Flexible y versátil (cualquier carga)</li><li>− El más lento; el de más siniestros</li></ul></div>
+        <div class="mini okk"><b>Aéreo</b><ul><li>+ El más rápido; urgencias y perecederos</li><li>+ Alto valor y poco volumen; seguro más barato</li><li>− Elevado costo; poca capacidad</li></ul></div>
+        <div class="mini okk"><b>Carretero</b><ul><li>+ Puerta a puerta; flexible</li><li>+ Facilidad de coordinación (transbordo)</li><li>− Carga pequeña; más accidentes (seguro caro)</li></ul></div>
+        <div class="mini okk"><b>Ferroviario</b><ul><li>+ Más capacidad y menos costoso que el camión</li><li>− Limitado a la red; no es puerta a puerta</li><li>− Lento (el segundo más lento)</li></ul></div>
+      </div>
+      <div class="fbox">A mayor costo, mayor seguridad y menor tiempo</div>
+    </div>
+
+    <div class="card">
+      <p class="h-main"><span class="dot"></span>Transporte marítimo<span class="src clase">De la clase</span></p>
+      <ul>
+        <li><b>Línea regular:</b> itinerario fijo y precios fijados ("un colectivo"). Puede ser conferenciado (navieras que acuerdan tarifas), outsider (independiente) o consorcio.</li>
+        <li><b>Fletamento o tramp:</b> sin itinerario ni precio fijo; libre competencia.</li>
+        <li><b>Buque de línea:</b> el más genérico; lleva bultos chicos y mercadería paletizada.</li>
+        <li><b>Tipos de buque:</b> de línea · tanque · granelero · mineralero · petrolero · químico · gases líquidos · portacontenedores · portabarcazas · roll on / roll off.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <p class="h-main"><span class="dot"></span>Multimodal<span class="src clase">De la clase</span></p>
+      <p class="def">Traslado por dos o más medios, <b>con un solo operador y un único documento</b>. Lo que lo fomentó: <b>el contenedor</b>.</p>
+    </div>
+      <h3 class="grp">Seguro</h3>
+    <span class="unit-weight">"elementos del seguro" · "tipos de seguro" · coberturas: "entra en el parcial"</span>
+
+
+    <div class="card">
+      <p class="h-main"><span class="dot"></span>Seguro y elementos<span class="src hoja">Mis hojas</span></p>
+      <p class="def">Contrato en el que un asegurador se compromete a resarcir a un asegurado económicamente en caso de un siniestro a cambio del pago de una prima</p>
+      <ul>
+        <li><b>Asegurador:</b> comprometido a resarcir el daño a cambio de una prima</li>
+        <li><b>Asegurado:</b> titular del interés asegurable</li>
+        <li><b>Riesgo:</b> hecho futuro incierto ajeno a la voluntad del asegurado</li>
+        <li><b>Interés asegurable:</b> relación económica entre el titular y el bien amenazado</li>
+        <li><b>Tomador:</b> quien firma el contrato · <b>Beneficiario:</b> quien recibe la indemnización</li>
+        <li><b>Prima:</b> pago por transferir el riesgo · <b>Siniestro:</b> evento que genera el daño</li>
+      </ul>
+      <p class="def"><b>Tipos:</b> seguro de carga (del transporte) · de crédito a la exportación · de caución.</p>
+    </div>
+
+    <div class="card">
+      <p class="h-main"><span class="dot"></span>Coberturas del seguro de carga<span class="src hoja">Mis hojas</span></p>
+      <div class="tbl-scroll"><table class="eco">
+        <tr><th>Medio</th><th>Coberturas</th></tr>
+        <tr><td><b>Marítimo · import.</b></td><td>CTR (contra todo riesgo) · LAP (libre de avería particular) · CA (con avería, con restricciones)</td></tr>
+        <tr><td><b>Marítimo · export.</b></td><td>Cláusula A: CTR · B: LAP · C: LAP para acontecimientos excepcionales (catástrofes naturales)</td></tr>
+        <tr><td><b>Aéreo</b></td><td>CTR (todo lo aeronáutico) · guerra · huelga · gastos de salvamento</td></tr>
+        <tr><td><b>Terrestre</b></td><td>Básico (choque, vuelco; tren: descarrilamiento) · básico + adicionales (hurto, extravío, merc. dañada) · CTR</td></tr>
+      </table></div>
+      <p class="note"><b>Avería particular:</b> daño de merc. de un solo asegurado · <b>Avería gruesa:</b> de varios asegurados a la vez, por la necesidad de la circunstancia.</p>
+    </div>
+
+    <div class="card">
+      <p class="h-main"><span class="dot"></span>Crédito a la exportación y caución<span class="src hoja">Mis hojas</span></p>
+      <div class="grid2">
+        <div class="mini"><b>Crédito a la exportación</b><ul><li>Protege al exportador que vende con pago diferido si el importador no paga</li><li>Riesgos comerciales: quiebra, convocatoria, atrasos en los pagos</li><li>Riesgo político: ajeno al comprador y al vendedor</li></ul></div>
+        <div class="mini"><b>Caución</b><ul><li>Lo presentan imp. y exp. ante la aduana para garantizar los tributos que pagan después, en caso de insolvencia</li><li>Beneficiario: la aduana · Tomador: el sujeto del com. ext.</li><li>Vigencia abierta</li></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="unit reveal" id="p3" style="--accent:var(--brand)">
+    <div class="unit-head"><div class="unit-num">06</div>
+      <div class="unit-titles"><p class="u-kicker">Unidad 6</p><h2>Bancos · hasta cobranza</h2></div></div>
+    <h3 class="grp">Instrumentos de pago</h3>
+    <span class="unit-weight">"la 6 hasta cobranza" · la secuencia: "con que hagan una listita ya está bien"</span>
+
+
+    <div class="card">
+      <p class="h-main"><span class="dot"></span>Letra de cambio<span class="src hoja">Mis hojas</span></p>
+      <p class="def">Documento que avala un crédito: la emite el exportador (librador) a través del banco y el importador (librado) la firma y asume el compromiso de pago.</p>
+      <ol>
+        <li>Negociación: contrato de compraventa</li>
+        <li>Envío de documentos y mercadería por el banco del exp.</li>
+        <li>El exp. emite la letra al imp.</li>
+        <li>El imp. la recibe del banco y la firma</li>
+        <li>Vuelve al banco del exp. como garantía</li>
+        <li>El imp. paga al exp. en la fecha pactada</li>
+      </ol>
+    </div>
+
+    <div class="card">
+      <p class="h-main"><span class="dot"></span>Orden de pago<span class="src hoja">Mis hojas</span></p>
+      <p class="def">Transferencia por canal SWIFT que ordena el <b>importador</b> a su banco para pagarle al exportador; además de dinero se envían instrucciones. Se usa cuando hay confianza y habitualidad.</p>
+      <ol>
+        <li>El exp. envía la mercadería y los documentos sin condicionamiento</li>
+        <li>El imp. (ordenante) le ordena a su banco (emisor) transferir al banco del exp. (pagador), que le acredita al exp. (beneficiario)</li>
+      </ol>
+    </div>
+
+    <div class="card">
+      <p class="h-main"><span class="dot"></span>Cobranza<span class="src hoja">Mis hojas</span></p>
+      <p class="def">La inicia el <b>exportador</b>: genera el cobro de valores con el compromiso de ejecutar ciertas instrucciones (envío de documentos contra recibo de dinero). <b>Remesa:</b> entrega de dinero a condición de entrega de documentos.</p>
+      <ol>
+        <li>El exp. manda la mercadería</li>
+        <li>Entrega los documentos a su banco (remitente)</li>
+        <li>El banco remitente envía la remesa al banco del imp.</li>
+        <li>El imp. paga y recibe los documentos</li>
+        <li>El banco del imp. envía el dinero al banco del exp., que le acredita</li>
+      </ol>
+    </div>
+  </section>
+
+  </div><!-- /view-resumen -->
+
+
+  <div id="view-completo" class="hidden">
+
+  <!-- ===================== 01 · DESTINACIONES DE EXPORTACIÓN ===================== -->
+  <section class="unit reveal" id="c1" style="--accent:var(--u3)">
+    <div class="unit-head"><div class="unit-num">04</div>
+      <div class="unit-titles"><p class="u-kicker">Unidad 4</p><h2>Exportación</h2></div></div>
+    <h3 class="grp">Destinaciones de exportación</h3>
+    <span class="unit-weight">Seguro · "van a entrar sí o sí" · "tiene que saber las destinaciones como el padre nuestro"</span>
+
+
+    <div class="card">
+      <p class="h-main"><span class="dot"></span>Exportación<span class="src clase">De la clase · 00:15:46</span></p>
+      <p class="def">Extracción de cualquier mercadería de un territorio aduanero (el reflejo de la importación, que es la introducción). No hay arribo, ni permanencia, ni depósito provisorio.</p>
+    </div>
+
+    <div class="card">
+      <p class="h-main"><span class="dot"></span>Clasificación<span class="src clase">De la clase · 00:16:52</span></p>
+      <ul>
+        <li><b>Definitiva:</b> la mercadería permanece fuera del territorio aduanero por tiempo indeterminado.</li>
+        <li><b>Suspensivas:</b> la mercadería permanece fuera por un tiempo determinado (con principio y fin) y se suspende el pago de los derechos hasta que se le asigne una destinación definitiva.</li>
+      </ul>
+      <div class="chain"><span>Definitiva de exportación para consumo</span><i>·</i><span>Suspensiva de exportación temporaria</span><i>·</i><span>Suspensiva de tránsito de exportación</span><i>·</i><span>Suspensiva de removido</span></div>
+      <p class="note">Son cuatro (en importación eran cinco). Nombrarlas siempre con el nombre completo.</p>
+    </div>
+
+    <div class="card">
+      <p class="h-main"><span class="dot"></span>Destinación definitiva de exportación para consumo<span class="src clase">De la clase · 00:18:41</span></p>
+      <p class="def">La mercadería permanece fuera del territorio aduanero por tiempo indeterminado, para su uso o consumo; no vuelve más. Cumple todas las obligaciones documentarias y <b>sí o sí grava derechos</b> (el derecho de exportación).</p>
+      <p class="quote">"Tiempo indeterminado y paga derecho."</p>
+    </div>
+
+    <div class="card">
+      <p class="h-main"><span class="dot"></span>Destinación suspensiva de exportación temporaria<span class="src clase">De la clase · 00:24:04</span></p>
+      <p class="def">La mercadería sale del territorio aduanero por un tiempo determinado y queda obligada a ser <b>reimportada</b> antes de que venza el plazo, ya sea porque se usó afuera o porque se transformó (se le agregó valor). Si no vuelve, paga derecho.</p>
+      <div class="grid3" style="margin-top:12px">
+        <div class="mini"><span class="num">3 AÑOS</span><b>Bienes de capital</b></div>
+        <div class="mini"><span class="num">1 AÑO</span><b>Eventos y muestras comerciales · espectáculos</b></div>
+        <div class="mini"><span class="num">2 AÑOS</span><b>Transformación o perfeccionamiento</b></div>
+      </div>
+      <div class="mini danger" style="margin-top:14px"><b>No confundir con la importación temporaria</b><ul><li>Importación: 3 años bienes de capital · 8 meses muestras comerciales · 1 año espectáculos · 2 años perfeccionamiento.</li><li>Exportación: <b>3 – 1 – 2</b> (eventos, muestras y espectáculos comparten el año).</li></ul><span class="hint"><b>Él</b> "para el parcial como el Padre Nuestro" · confundirlos "es cero punto en cualquier evaluación".</span></div>
+    </div>
+
+    <div class="card">
+      <p class="h-main"><span class="dot"></span>Destinación suspensiva de tránsito de exportación<span class="src clase">De la clase · 00:33:54</span></p>
+      <p class="def">La mercadería de libre circulación se somete a una destinación de exportación en una aduana y se transporta a otra aduana del mismo territorio aduanero para ser exportada desde esta. Pasa por dos aduanas.</p>
+      <div class="chain"><span>Aduana interior</span><i>→</i><span>Aduana de salida</span></div>
+      <p class="note"><b>Diferencia con la importación:</b> en importación la primera aduana es de entrada; en exportación la primera es <b>sí o sí una aduana interior</b>. "Apréndanse un solo caso."</p>
+    </div>
+
+    <div class="card">
+      <p class="h-main"><span class="dot"></span>Destinación suspensiva de removido<span class="src clase">De la clase · 00:38:23</span></p>
+      <p class="def">La mercadería <b>sale del territorio aduanero sin salir del país</b>: se transporta a otro lugar del territorio aduanero, con intervención de la aduana de salida y la de destino, sin atravesar un ámbito no sometido a la soberanía nacional. Es un traslado: no paga derecho.</p>
+      <p class="h-sub">Los tres supuestos</p>
+      <ol>
+        <li><b>Mar argentino</b> (ej.: de Ushuaia a Buenos Aires por mar)</li>
+        <li><b>Ríos internacionales</b></li>
+        <li><b>Territorio aduanero especial</b></li>
+      </ol>
+      <p class="note">Pasar a una <b>zona franca no es removido</b> ("porque lo dice la ley"). Pregunta más el concepto que los plazos.</p>
+      <details class="ej x" open><summary>Plazos del removido</summary><p>Primer vencimiento: marítimo, distancia ÷ 120 km por día · aéreo, 1 día · terrestre, lo calcula la aduana de destino. Segundo vencimiento: 60 días desde la salida (este sí está en el Código). La multa corre si se pasa del segundo.</p></details>
+    </div>
+
+    <div class="card">
+      <p class="h-main"><span class="dot"></span>Régimen especial de muestras<span class="src clase">De la clase · 01:43:40</span></p>
+      <p class="def">Mercadería que se envía sin cargo como muestra (promoción, degustación en una feria): no va ni para consumo ni temporaria; va en el régimen especial de muestras y <b>no grava derechos</b>.</p>
+      <p class="quote">"Régimen especial de muestras. Dígalo así."</p>
+    </div>
+
+    <div class="card x">
+      <p class="h-main"><span class="dot"></span>Documentos<span class="src clase">De la clase · 00:51:36</span></p>
+      <ul>
+        <li><b>Ante la aduana:</b> el despacho de exportación, donde se declara la destinación.</li>
+        <li><b>De la operación:</b> los mismos que en importación, pero los emite el exportador: factura comercial · factura proforma · documento de transporte · seguro sobre el transporte · lista de empaque · certificado de origen.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="unit reveal" id="c2" style="--accent:var(--u1)">
+    <div class="unit-head"><div class="unit-num">05</div>
+      <div class="unit-titles"><p class="u-kicker">Unidad 5</p><h2>Transporte y seguros</h2></div></div>
+    <h3 class="grp">Transporte</h3>
+    <span class="unit-weight">U5 completa · "un día capaz vengo enojado y les pregunto: explique la acepción jurídica y comercial"</span>
+
+
+    <div class="card">
+      <p class="h-main"><span class="dot"></span>Concepto y acepciones<span class="src clase">De la clase · 00:03:10</span></p>
+      <p class="def"><b>Transporte:</b> traslado de un bien de un sitio a otro que agrega valor.</p>
+      <ul>
+        <li><b>Acepción comercial:</b> la actividad que culmina el proceso producción-consumo; lleva la mercadería terminada al punto de consumo.</li>
+        <li><b>Acepción jurídica:</b> el traslado que una persona que dispone libremente de una mercadería solicita a un transportador, para que la lleve a un lugar determinado a cambio del pago de un precio. "Dispone libremente" no significa dueño.</li>
+      </ul>
+    </div>
+
+    <div class="card x">
+      <p class="h-main"><span class="dot"></span>Elementos del transporte<span class="src clase">De la clase · 00:09:43</span></p>
+      <ul>
+        <li><b>Personales:</b> cargador (pone la mercadería a disposición del transportista) · transportista · destinatario.</li>
+        <li><b>Reales:</b> la mercadería y el precio.</li>
+        <li><b>Formales:</b> los documentos.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <p class="h-main"><span class="dot"></span>Medios de transporte<span class="src clase">De la clase · 00:06:23</span></p>
+      <ul>
+        <li><b>Marítimo:</b> por agua, en construcciones flotantes.</li>
+        <li><b>Terrestre:</b> vehículos motorizados (carretero) o ferrocarriles (ferroviario).</li>
+        <li><b>Aéreo:</b> aviones.</li>
+        <li><b>Multimodal:</b> dos o más medios en una misma operación, con un solo responsable.</li>
+      </ul>
+    </div>
+
+    <div class="card x">
+      <p class="h-main"><span class="dot"></span>Medios y su documento<span class="src clase">De la clase</span></p>
+      <div class="tbl-scroll"><table class="eco">
+        <tr><th>Medio</th><th>Documento</th><th>¿Acredita la propiedad?</th></tr>
+        <tr><td><b>Marítimo</b></td><td>Conocimiento de embarque (B/L, Bill of Lading)</td><td>Sí, y se puede transferir la titularidad (el viaje es largo)</td></tr>
+        <tr><td><b>Aéreo</b></td><td>Guía aérea (AWB, Airway Bill)</td><td><b>No</b>: solo acredita el contrato (el viaje es rápido)</td></tr>
+        <tr><td><b>Carretero / ferroviario</b></td><td>Carta de porte</td><td>Sí; transferible solo si dice "a la orden"</td></tr>
+        <tr><td><b>Multimodal</b></td><td>Documento de transporte multimodal</td><td>Puede acreditarla; se firma con el operador multimodal</td></tr>
+      </table></div>
+    </div>
+      <h3 class="grp">Ventajas y desventajas de los medios</h3>
+    <span class="unit-weight">U5 completa · "ese siempre es mi comodín para preguntar" · mis hojas: "Teórico: V y D para algún medio de transp."</span>
+
+
+    <div class="card">
+      <p class="h-main"><span class="dot"></span>Por medio<span class="src clase">De la clase · 13/10</span></p>
+      <div class="grid2">
+        <div class="mini okk"><b>Marítimo</b><ul><li>+ Mueve el mayor volumen del mundo</li><li>+ Grandes distancias; capacidad en toneladas</li><li>+ Flexible (cualquier tamaño de carga) y versátil (todo tipo de carga)</li><li>− Lento (el más lento)</li><li>− El de más siniestros</li></ul></div>
+        <div class="mini okk"><b>Aéreo</b><ul><li>+ Rapidez; urgencias y perecederos</li><li>+ Alto valor y poco volumen o peso</li><li>+ Control y seguimiento; mayor seguridad</li><li>+ Menor riesgo y menor costo del seguro</li><li>+ La documentación viaja con la mercadería</li><li>− Elevado costo</li><li>− Poca capacidad; no optimiza el espacio</li></ul></div>
+        <div class="mini okk"><b>Carretero</b><ul><li>+ Puerta a puerta (penetración)</li><li>+ Flexibilidad; rapidez de carga y descarga</li><li>+ Facilidad de coordinación (transbordo)</li><li>− Carga pequeña frente a otros medios</li><li>− Más siniestros (accidentes en ruta): el seguro más caro</li></ul></div>
+        <div class="mini okk"><b>Ferroviario</b><ul><li>+ Más capacidad que el camión; menos mano de obra</li><li>+ Menos costoso que el camión</li><li>+ Menor riesgo y costo del seguro que el camión</li><li>− Limitado a la red; no es puerta a puerta</li><li>− Lento (el segundo más lento)</li></ul></div>
+      </div>
+      <div class="fbox">A mayor costo, mayor seguridad y menor tiempo<small>A menor costo, mayor tiempo y menor seguridad · decir "menos costoso", no "barato"</small></div>
+    </div>
+
+    <div class="card x">
+      <p class="h-main"><span class="dot"></span>Ranking del pizarrón (1 = mejor)<span class="src clase">De la clase · 20/10</span></p>
+      <div class="tbl-scroll"><table class="eco">
+        <tr><th>Medio</th><th>Costo</th><th>Distancia</th><th>Tiempo</th><th>Volumen</th></tr>
+        <tr><td><b>Marítimo</b></td><td class="num">1</td><td class="num">2</td><td class="num">4</td><td class="num">1</td></tr>
+        <tr><td><b>Ferroviario</b></td><td class="num">2</td><td class="num">3</td><td class="num">3</td><td class="num">2</td></tr>
+        <tr><td><b>Aéreo</b></td><td class="num">4</td><td class="num">1</td><td class="num">1</td><td class="num">4</td></tr>
+        <tr><td><b>Carretero</b></td><td class="num">3</td><td class="num">4*</td><td class="num">2*</td><td class="num">3*</td></tr>
+      </table></div>
+      <p class="note">* En la grabación no se oye la fila del carretero salvo el costo; las otras tres salen por descarte. "No hay una situación óptima, va a depender de las circunstancias": ruta, mercadería, urgencia, distancia y volumen.</p>
+    </div>
+      <h3 class="grp">Transporte marítimo</h3>
+    <span class="unit-weight">U5 completa · última clase: "tipo de buque sí" · "tipos de servicio de transporte marítimo" · "qué es un buque de línea"</span>
+
+
+    <div class="card">
+      <p class="h-main"><span class="dot"></span>Tipos de buque<span class="src clase">De la clase · 00:19:09</span></p>
+      <p class="def"><b>Buque:</b> toda construcción flotante destinada a navegar por agua.</p>
+      <ul>
+        <li><b>De línea:</b> bultos chicos, mercadería paletizada</li>
+        <li><b>Tanque:</b> líquidos</li>
+        <li><b>Granelero:</b> granos (arroz, soja, maíz), se carga desde arriba</li>
+        <li><b>Mineralero:</b> como el granelero, para minerales</li>
+        <li><b>Petrolero:</b> petróleo en bruto</li>
+        <li><b>Químico:</b> químicos peligrosos, más protegido que el tanque</li>
+        <li><b>Para gases líquidos</b></li>
+        <li><b>Portacontenedores:</b> "la clave del comercio exterior"</li>
+        <li><b>Portabarcazas:</b> lleva varias barcazas a la vez</li>
+        <li><b>Roll on / roll off:</b> se carga por dentro, con vehículos</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <p class="h-main"><span class="dot"></span>Las dos formas de explotar los buques<span class="src clase">De la clase · 00:35:09</span></p>
+      <div class="grid2">
+        <div class="mini"><b>1) Línea regular</b><ul><li>Itinerario fijo, escalas y precios fijados de antemano ("pensá en un colectivo")</li><li><b>Conferenciado:</b> varias navieras fijan juntas tarifas y viajes; casi un oligopolio, limita la competencia</li><li><b>Outsiders o independientes:</b> fuera de la conferencia; itinerario sí, precio según oferta y demanda</li><li><b>Consorcios:</b> compañías que unen esfuerzos y forman una nueva entidad ("pensá en una cooperativa")</li></ul></div>
+        <div class="mini"><b>2) Fletamento o tramp</b><ul><li>Sin itinerario ni precio fijo: libre competencia; va "donde el viento le lleve"</li><li>Desventaja: no es constante a largo plazo</li><li><b>Fletador:</b> el que solicita el transporte (un rol; no es el fletero ni el transportista)</li></ul></div>
+      </div>
+      <div class="x"><div class="tbl-scroll"><table class="eco">
+        <tr><th>Tipo de fletamento</th><th>Duración</th><th>Paga los gastos</th></tr>
+        <tr><td><b>Arrendamiento a casco desnudo</b></td><td>Tiempo estipulado</td><td>Fletador (usa el buque y cede espacios a terceros)</td></tr>
+        <tr><td><b>Por tiempo</b></td><td>Tiempo estipulado</td><td>Propietario</td></tr>
+        <tr><td><b>Por viaje</b></td><td>Un viaje en particular</td><td>Fletador*</td></tr>
+      </table></div>
+      <p class="note">* Así quedó en el pizarrón; la explicación oral es confusa.</p></div>
+    </div>
+
+    <div class="card x">
+      <p class="h-main"><span class="dot"></span>Roles del transporte marítimo<span class="src clase">De la clase · 01:35:16</span></p>
+      <p class="def">Una persona puede ejercer más de un rol.</p>
+      <ul>
+        <li><b>Armador:</b> el empresario que explota económicamente el buque y presta el servicio; no necesariamente es el dueño</li>
+        <li><b>Capitán:</b> dirige la tripulación; profesional contratado por el armador o el propietario</li>
+        <li><b>Cargador:</b> pone la mercadería a disposición del transportista</li>
+        <li><b>Consignatario del buque:</b> representante del buque en el puerto</li>
+        <li><b>Consignatario de la mercadería:</b> quien la recibe en destino</li>
+        <li><b>Fletador:</b> solicita el transporte y negocia con el armador ("el fletador pide, el armador hace")</li>
+        <li><b>Agente de fletamento:</b> conecta oferta y demanda del fletamento, a comisión</li>
+        <li><b>Agente marítimo:</b> hace los trámites ante el puerto (no la aduana)</li>
+        <li><b>Despachante de aduana:</b> hace los trámites ante la aduana</li>
+        <li><b>Transportador:</b> hace el traslado físico</li>
+        <li><b>Freight forwarder:</b> coordina todas las actividades anteriores en el puerto</li>
+      </ul>
+    </div>
+      <h3 class="grp">Multimodal y contenedor</h3>
+    <span class="unit-weight">U5 completa · medidas de los contenedores: NO ("medidas no, no para ustedes")</span>
+
+
+    <div class="card">
+      <p class="h-main"><span class="dot"></span>Multimodal<span class="src clase">De la clase · 02:09:57</span></p>
+      <p class="def">Traslado de origen a destino por dos o más medios, <b>a cargo de un solo operador y con un único documento</b>.</p>
+      <ul>
+        <li><b>Combinado o intermodal:</b> varios transportistas, se negocia aparte con cada uno (poco usado hoy). No es lo mismo que multimodal.</li>
+        <li><b>Operador de transporte multimodal (OTM):</b> el que firma el contrato y coordina todo; "hace todo, pero no es propietario de nada".</li>
+        <li class="x"><b>Puente terrestre:</b> tren de doble vagón que lleva contenedores sin abrirlos.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <p class="h-main"><span class="dot"></span>Contenedor<span class="src clase">De la clase · 02:14:09</span></p>
+      <p class="def">Caja de metal que traslada la mercadería: <b>es lo que permite el transporte multimodal</b> y facilita el transbordo.</p>
+      <p class="h-sub">¿Por qué las medidas son universales?</p>
+      <ol>
+        <li>Para que se puedan <b>apilar</b></li>
+        <li>Para que se <b>acoplen a todos los medios</b> de transporte (transbordo)</li>
+        <li>Para <b>medir</b> lo que mueve cada puerto</li>
+      </ol>
+    </div>
+      <h3 class="grp">Seguro</h3>
+    <span class="unit-weight">U5 completa · la definición: "después lo tienen que decir en el examen" · "usen la palabra siniestro"</span>
+
+
+    <div class="card">
+      <p class="h-main"><span class="dot"></span>Seguro<span class="src hoja">Mis hojas</span></p>
+      <p class="def">Contrato en el que un asegurador se compromete a resarcir a un asegurado económicamente en caso de un siniestro a cambio del pago de una prima</p>
+    </div>
+
+    <div class="card">
+      <p class="h-main"><span class="dot"></span>Elementos<span class="src hoja">Mis hojas</span></p>
+      <ul>
+        <li><b>Asegurador:</b> Persona comprometida a resarcir el daño a partir del pago de una prima</li>
+        <li><b>Asegurado:</b> Titular del interés asegurable</li>
+        <li><b>Riesgo:</b> Hecho futuro incierto ajeno a la voluntad del asegurado con riesgo de daño</li>
+        <li><b>Interés asegurable:</b> Relación económica entre el titular y el bien que se ve amenazado</li>
+        <li><b>Tomador:</b> Persona que celebra o firma el contrato con el asegurador</li>
+        <li><b>Beneficiario:</b> El que recibirá la indemnización</li>
+        <li><b>Prima:</b> Pago que recibe el asegurador por transferir el riesgo del patrimonio del asegurado al asegurador</li>
+        <li><b>Siniestro:</b> Evento que genera el daño</li>
+      </ul>
+    </div>
+
+    <div class="card x">
+      <p class="h-main"><span class="dot"></span>Prima<span class="src hoja">Mis hojas</span></p>
+      <ul>
+        <li><b>Pura:</b> Monto necesario para indemnizar el siniestro</li>
+        <li><b>Comercial:</b> Además de pura cubre gastos administrativos, comisiones, etc.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <p class="h-main"><span class="dot"></span>Tipos de seguro<span class="src hoja">Mis hojas</span></p>
+      <ol>
+        <li><b>Seguro de carga:</b> Seguro del transporte</li>
+        <li><b>Seguro de crédito a la exportación</b></li>
+        <li><b>Seguro de caución</b></li>
+      </ol>
+    </div>
+      <h3 class="grp">Seguro de carga: coberturas</h3>
+    <span class="unit-weight">Seguro · "Bueno, entra en el parcial" (27/10, 01:18:38) · mis hojas: «Entra al parcial»</span>
+
+
+    <div class="card">
+      <p class="h-main"><span class="dot"></span>1) Marítimo<span class="src hoja">Mis hojas</span></p>
+      <div class="grid2">
+        <div class="mini"><b>Para import.</b><ul><li><b>CTR</b> (Contra todo riesgo)</li><li><b>LAP</b> (Libre de avería particular): No incluye avería particular</li><li><b>CA</b> (Con avería): Tiene restricciones</li></ul></div>
+        <div class="mini"><b>Para exportar</b><ul><li><b>Cláusula A:</b> CTR</li><li><b>Cláusula B:</b> LAP</li><li><b>Cláusula C:</b> LAP para acontecimientos excepcionales (Catástrofes naturales)</li></ul></div>
+      </div>
+      <ul style="margin-top:10px">
+        <li><b>Avería particular:</b> Daño de merc. de un solo asegurado</li>
+        <li><b>Avería gruesa:</b> Daño de merc. de varios asegurados a la vez por la necesidad de la circunstancia</li>
+        <li><b>Pérdida total:</b> Suma de todo</li>
+      </ul>
+      <p class="note"><span class="src clase">De la clase</span> La avería gruesa solo existe en el marítimo, y por ley todos los asegurados <b>participan de la avería gruesa</b> (pagan parte), aunque tengan contra todo riesgo: "doble pérdida".</p>
+    </div>
+
+    <div class="card">
+      <p class="h-main"><span class="dot"></span>2) Aéreo<span class="src hoja">Mis hojas</span></p>
+      <p class="def">Depende de la pericia del piloto: sobre las cosas · relación con las personas · responsabilidad social</p>
+      <p class="h-sub">Cobertura T. Aéreo</p>
+      <ul>
+        <li><b>CTR</b> (Para todo lo aeronáutico)</li>
+        <li><b>Guerra</b></li>
+        <li><b>Huelga</b></li>
+        <li><b>Gastos de salvamento</b></li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <p class="h-main"><span class="dot"></span>3) Terrestres (Ferrocarril también)<span class="src hoja">Mis hojas</span></p>
+      <p class="def">Sobre la carga: CTR · Sobre el vehículo: por el vehículo o pasajeros · Sobre la pericia del transportador: responsabilidad del transportador</p>
+      <p class="h-sub">Cobertura T. Terrestre</p>
+      <ul>
+        <li><b>Básico:</b> Camiones (<span class="soft-i">choque, vuelco, desbarranco</span>) · Tren (Descarrilamiento) <span class="src clase">lo de camiones, de la clase</span></li>
+        <li><b>Básico + Adicionales:</b> Hurto, merc. extraviada, vencida, Merc. dañada durante el viaje</li>
+        <li><b>CTR:</b> Todo riesgo</li>
+      </ul>
+    </div>
+
+    <div class="fbox">Terrestre: básico · básico + adicionales · CTR<br>Aéreo: CTR · guerra · huelga · gastos de salvamento<br>Marítimo: export. A · B · C — import. CTR · LAP · CA<small>El resumen que dictó el 27/10 antes de decir "entra en el parcial"</small></div>
+      <h3 class="grp">Seguro de crédito a la exportación y de caución</h3>
+    <span class="unit-weight">U5 completa · caución: "atiendan, porque después vienen a llorar en el examen"</span>
+
+
+    <div class="card">
+      <p class="h-main"><span class="dot"></span>B) Seguro de crédito a la exportación<span class="src hoja">Mis hojas</span></p>
+      <p class="h-sub">Para qué se usa</p>
+      <ul>
+        <li>Para ventas al exterior con pago diferido (compro ahora pago después)</li>
+        <li>Solvencia, trayectoria y calidad moral del comprador</li>
+        <li>Para hacer valer derechos ante tribunales de otro país en caso de insolvencia</li>
+        <li>Para previsión de deudores incobrables</li>
+        <li>Por riesgos comerciales y políticos</li>
+      </ul>
+      <p class="h-sub">Condiciones</p>
+      <ul>
+        <li>Póliza anual</li>
+        <li>El asegurado tiene acceso a su cartera de clientes ya calificados por la aseguradora</li>
+        <li>Base de datos de nuevos clientes o límites de crédito de los clientes de la aseguradora</li>
+        <li>Tercerizar la gestión de recobro de deudas y su seguimiento</li>
+      </ul>
+      <p class="h-sub">Tipos de riesgos</p>
+      <div class="grid2">
+        <div class="mini"><b>A) Riesgos comerciales</b><ul><li>Insolvencia por quiebra</li><li>Convocatoria</li><li>Atrasos en los pagos</li></ul></div>
+        <div class="mini"><b>B) Riesgo político</b><ul><li>Ajeno al comprador y vendedor</li></ul></div>
+      </div>
+      <p class="note"><span class="src clase">De la clase</span> Protege al <b>exportador</b> si el importador no paga; el exportador firma y paga la prima.</p>
+    </div>
+
+    <div class="card">
+      <p class="h-main"><span class="dot"></span>C) Seguro de caución<span class="src hoja">Mis hojas</span></p>
+      <p class="def">Seguros presentados por imp. y exp. ante el ARCA para garantizar tributos derivados de sus operaciones en caso de insolvencia</p>
+      <p class="h-sub">Ejemplos</p>
+      <ul>
+        <li>Diferencias de derechos</li>
+        <li>Falta de documentos complementarios</li>
+        <li>Destinación en tránsito</li>
+        <li>Destinaciones temporarias</li>
+        <li>Depósitos aduaneros</li>
+      </ul>
+      <ul style="margin-top:8px">
+        <li><b>Régimen de garantía:</b> Situaciones donde el exp o imp no paga en el momento los derechos</li>
+        <li><b>Vigencia abierta:</b> Sin fecha determinada</li>
+        <li><b>Beneficiario:</b> Es la aduana quien cobra</li>
+        <li><b>Asegurador:</b> Compañía habilitada para este tipo de seguro</li>
+        <li><b>Tomador:</b> Sujeto del com. ext.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="unit reveal" id="c3" style="--accent:var(--brand)">
+    <div class="unit-head"><div class="unit-num">06</div>
+      <div class="unit-titles"><p class="u-kicker">Unidad 6</p><h2>Bancos · hasta cobranza</h2></div></div>
+    <h3 class="grp">Bancos: el pago internacional</h3>
+    <span class="unit-weight">Seguro · "esta es la parte más difícil, y entra en el parcial" · hasta cobranza</span>
+
+
+    <div class="card">
+      <p class="h-main"><span class="dot"></span>Componente int.<span class="src hoja">Mis hojas</span></p>
+      <ol>
+        <li>Moneda; idioma; gastos; costumbres</li>
+        <li>Distancia</li>
+        <li>Tiempo</li>
+        <li>Riesgo</li>
+      </ol>
+      <p class="note"><span class="src clase">De la clase</span> El riesgo es el del <b>incumplimiento del pago</b>. "A mayor distancia, mayor riesgo."</p>
+    </div>
+
+    <div class="card">
+      <p class="h-main"><span class="dot"></span>Cómo mitigar el riesgo<span class="src hoja">Mis hojas</span></p>
+      <ul>
+        <li>Instrumentos de pago int.</li>
+        <li>Entender a las partes que hacen el negocio</li>
+        <li>Intermediación Bancaria entre partes</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <p class="h-main"><span class="dot"></span>Instrumentos y partes<span class="src clase">De la clase · 27/10 y 03/11</span></p>
+      <div class="chain"><span>Letra de cambio</span><i>·</i><span>Orden de pago</span><i>·</i><span>Cobranza</span><i>·</i><span class="soft">Carta de crédito (no entra)</span></div>
+      <ul>
+        <li>El banco no solo canaliza la plata: también <b>garantiza el pago</b>. El instrumento se pacta en el contrato de compraventa.</li>
+        <li>Siempre son <b>cuatro partes: dos clientes y dos bancos</b>.</li>
+        <li><b>Librador</b> = el que empieza el trámite · <b>librado</b> = al que se le dirige. Escribir primero "importador / exportador" y entre paréntesis el nombre técnico.</li>
+        <li>Quién inicia: <b>letra de cambio y cobranza → el exportador</b> · <b>orden de pago → el importador</b>.</li>
+      </ul>
+      <p class="note">La secuencia se puede pedir: "con que hagan una listita ya está bien", sin gráfico.</p>
+    </div>
+      <h3 class="grp">Letra de cambio</h3>
+    <span class="unit-weight">Seguro · U6 hasta cobranza</span>
+
+
+    <div class="card">
+      <p class="h-main"><span class="dot"></span>Letra de cambio<span class="src hoja">Mis hojas</span></p>
+      <p class="def">Documento que avala un crédito. La realiza el exp. y este la manda al imp. este firma y asume compromiso de pago. Este la reenvía al exp. y este la destina al banco</p>
+      <p class="note"><span class="src clase">De la clase</span> Es un título de crédito, "como un pagaré", pero al revés: lo emite el acreedor (exportador) y obliga al deudor (importador). Se hace <b>a través del banco</b>. Que el importador la firme se llama <b>aceptación</b>.</p>
+    </div>
+
+    <div class="card">
+      <p class="h-main"><span class="dot"></span>Proceso<span class="src hoja">Mis hojas</span></p>
+      <ol>
+        <li>Negociación · Contrato Compraventa</li>
+        <li>Envío doc. y merc. · banco del exp</li>
+        <li>El exp (Librador) emite la letra al (Librado) con la orden de pago</li>
+        <li>El imp. recibe del banco para firmar</li>
+        <li>Devuelve al banco del exp. como garantía</li>
+        <li>El imp paga al exp en la fecha pactada</li>
+      </ol>
+      <ul style="margin-top:8px">
+        <li><b>Posibilidad de descuento:</b> El exp. puede cobrar anticipadamente la letra para tener liquidez inmediata a cambio de un costo</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <p class="h-main"><span class="dot"></span>Características<span class="src hoja">Mis hojas</span></p>
+      <ul>
+        <li>Permite ejecución del moroso mediante el "protesto"</li>
+        <li><b>Protesto:</b> Antecedente para iniciar gestión judicial</li>
+        <li>Aplica tanto en cobranza como carta de crédito</li>
+      </ul>
+      <p class="note"><span class="src clase">De la clase</span> Protesto: acto notarial que acredita la falta de pago de una letra de cambio.</p>
+    </div>
+      <h3 class="grp">Orden de pago</h3>
+    <span class="unit-weight">Seguro · U6 hasta cobranza</span>
+
+
+    <div class="card">
+      <p class="h-main"><span class="dot"></span>Orden de pago<span class="src hoja">Mis hojas</span></p>
+      <p class="def">Transferencia de dólares a través de canal SWIFT. Además de dinero, se envían instrucciones. Esto contra la entrega de ciertos documentos</p>
+      <p class="note"><span class="src clase">De la clase</span> "Es la orden emitida por el importador a su banco para realizar la transferencia de fondos al banco del exportador." No es una transferencia común: se pide en comercio exterior del banco.</p>
+    </div>
+
+    <div class="card">
+      <p class="h-main"><span class="dot"></span>Intervienen<span class="src hoja">Mis hojas</span></p>
+      <ul>
+        <li><b>Ordenante · Tomador</b> <span class="soft-i">(el importador)</span></li>
+        <li><b>Banco emisor o remitente</b> <span class="soft-i">(banco del importador)</span></li>
+        <li><b>Pagador</b> <span class="soft-i">(banco del exportador)</span></li>
+        <li><b>Beneficiario</b> <span class="soft-i">(el exportador)</span></li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <p class="h-main"><span class="dot"></span>Cuándo se usa<span class="src clase">De la clase · 02:17:32</span></p>
+      <p class="def">Cuando hay <b>confianza y habitualidad</b> con el cliente: el exportador manda mercadería y documentos sin condicionamiento. "Esto no es para tu primera exportación."</p>
+      <p class="h-sub">Secuencia (la que dictó)</p>
+      <ol>
+        <li>El exportador envía la mercadería y los documentos sin condicionamiento.</li>
+        <li>El importador (librador) le ordena a su banco (emisor) la transferencia de fondos al banco del exportador (pagador), que le acredita.</li>
+      </ol>
+    </div>
+      <h3 class="grp">Cobranza</h3>
+    <span class="unit-weight">Seguro · "mínimo, un concepto de cobranza van a tener que manejar" · "¿quién lo inicia? el exportador"</span>
+
+
+    <div class="card">
+      <p class="h-main"><span class="dot"></span>Cobranza<span class="src hoja">Mis hojas</span></p>
+      <p class="def">La inicia el exportador (Ordenante o tomador). Girador es el exportador, remitente es el banco</p>
+      <p class="def">Genera el cobro de valores con el compromiso de ejecutar ciertas instrucciones (Envío de documentos contra recibo de dinero)</p>
+      <p class="note"><span class="src clase">De la clase</span> "El exportador le dice a su banco que le mande los documentos al banco del importador sí, y solo sí, ese importador le manda la transferencia."</p>
+    </div>
+
+    <div class="card">
+      <p class="h-main"><span class="dot"></span>Partes<span class="src hoja">Mis hojas</span></p>
+      <ul>
+        <li><b>Librador</b> (Inicia el trámite)</li>
+        <li><b>Librado</b> (Al que se le dirige el trámite)</li>
+      </ul>
+      <ul style="margin-top:8px">
+        <li><b>Remesa:</b> Entrega de dinero a condición de entrega de documentos</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <p class="h-main"><span class="dot"></span>Secuencia<span class="src clase">De la clase · 02:40:08</span></p>
+      <ol>
+        <li>El exportador manda la mercadería al importador.</li>
+        <li>Entrega los documentos a su banco (banco remitente), no al importador.</li>
+        <li>El banco remitente le envía una remesa al banco del importador (cobro contra entrega de documentos).</li>
+        <li>El banco del importador le notifica que llegaron los documentos.</li>
+        <li>El importador paga y recibe los documentos.</li>
+        <li>Reembolso: el banco del importador envía el dinero al banco del exportador, que lo acredita.</li>
+      </ol>
+      <p class="note"><b>Cobranza vs. carta de crédito:</b> es el mismo mecanismo al revés. La cobranza se hace a pedido del <b>exportador</b>; la carta de crédito, a pedido del importador.</p>
+    </div>
+  </section>
+
+  </div><!-- /view-completo -->
+
+  <!-- ===================== QUIZ ===================== -->
+  <section id="view-quiz" class="modeview hidden">
+    <div class="qwrap">
+      <div class="qtop"><span>Pregunta <b id="q-idx">1</b> / <span id="q-total">0</span></span><span>Aciertos <b id="q-score">0</b></span><button class="btn ghost" id="q-restart">Reiniciar</button></div>
+      <div class="qcard" id="quiz-card"></div>
+    </div>
+  </section>
+
+  <!-- ===================== ESCRIBIR ===================== -->
+  <section id="view-escribir" class="modeview hidden">
+    <div class="qwrap">
+      <div class="qtop"><span>Pregunta <b id="e-idx">1</b> / <span id="e-total">0</span></span><span>De memoria <b id="e-score">0</b></span><button class="btn ghost" id="e-restart">Reiniciar</button></div>
+      <div class="qcard" id="esc-card"></div>
+    </div>
+  </section>
+
+  <footer>
+    <p>U4 completa · U5 completa · U6 hasta cobranza · Comercio Exterior</p>
+  </footer>
+
+</div>
+
+<script>
+  /* ============ AUTO-ACTUALIZADOR ============ */
+  /* Bump BUILD en cada deploy: las pestañas abiertas detectan la versión nueva y recargan solas. */
+  const BUILD='2026-11-08-5';
+  async function checkUpdate(){
+    try{
+      if(location.protocol==='file:')return;
+      const r=await fetch(location.pathname+'?_cb='+Math.floor(Date.now()/30000),{cache:'no-store'});
+      if(!r.ok)return;
+      const t=await r.text();
+      const m=t.match(/const BUILD='([^']+)'/);
+      if(!m||m[1]===BUILD)return;
+      const num=v=>v.split('-').map(Number);
+      const newer=(a,b)=>{const x=num(a),y=num(b);for(let i=0;i<Math.max(x.length,y.length);i++){if((x[i]||0)!==(y[i]||0))return (x[i]||0)>(y[i]||0);}return false;};
+      let done='';try{done=sessionStorage.getItem('reloadedFor')||'';}catch(e){}
+      if(newer(m[1],BUILD)&&done!==m[1]){try{sessionStorage.setItem('reloadedFor',m[1]);}catch(e){}location.reload();}
+    }catch(e){}
+  }
+  setInterval(checkUpdate,60000);
+  document.addEventListener('visibilitychange',()=>{if(!document.hidden)checkUpdate();});
+
+  /* Aparición de secciones: umbral 0 + respaldo a 1,5 s. */
+  const showAll=()=>document.querySelectorAll('.reveal').forEach(el=>el.classList.add('in'));
+  if('IntersectionObserver' in window){
+    const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:0,rootMargin:'0px 0px 120px 0px'});
+    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+    setTimeout(showAll,1500);
+  }else{showAll();}
+  const chips={};document.querySelectorAll('.chip').forEach(c=>{const h=c.getAttribute('href');if(h&&h.startsWith('#'))chips[h.slice(1)]=c;});
+  const spy=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){
+    Object.values(chips).forEach(c=>c.style.cssText='');
+    const c=chips[e.target.id];if(c){c.style.background='var(--ink)';c.style.color='var(--paper)';}
+  }})},{rootMargin:'-45% 0px -50% 0px'});
+  document.querySelectorAll('section.unit').forEach(s=>spy.observe(s));
+
+  /* ============ BANCO DE PREGUNTAS (las respuestas son las palabras del cuaderno) ============ */
+  const EC=[
+   {u:'Unidad 4 · Exportación',c:'var(--u3)',items:[
+     {q:'¿Qué es la exportación?',a:'La extracción de cualquier mercadería de un territorio aduanero'},
+     {q:'Destinación definitiva vs. suspensiva',a:'Definitiva: permanece fuera por tiempo indeterminado. Suspensiva: permanece fuera por un tiempo determinado y se suspende el pago de los derechos'},
+     {q:'¿Cuáles son las destinaciones de exportación?',a:'Definitiva de exportación para consumo · Suspensiva de exportación temporaria · Suspensiva de tránsito de exportación · Suspensiva de removido'},
+     {q:'Destinación definitiva de exportación para consumo',a:'Fuera por tiempo indeterminado; no vuelve. Sí o sí grava derechos'},
+     {q:'Destinación suspensiva de exportación temporaria',a:'Sale por un tiempo y debe ser reimportada antes del plazo, por uso o transformación. Si no vuelve, paga derecho'},
+     {q:'Plazos de la exportación temporaria',a:'3 años bienes de capital · 1 año eventos, muestras comerciales y espectáculos · 2 años transformación o perfeccionamiento'},
+     {q:'Destinación suspensiva de tránsito de exportación',a:'Pasa por dos aduanas: de una aduana interior a una aduana de salida'},
+     {q:'Destinación suspensiva de removido',a:'Sale del territorio aduanero sin salir del país. No paga derecho'},
+     {q:'Los tres supuestos del removido',a:'Mar argentino · Ríos internacionales · Territorio aduanero especial'},
+     {q:'Régimen especial de muestras',a:'Mercadería sin cargo como muestra: no va ni para consumo ni temporaria y no grava derechos'}
+   ]},
+   {u:'Unidad 5 · Transporte y seguros',c:'var(--u1)',items:[
+     {q:'¿Qué es el transporte?',a:'Traslado de un bien de un sitio a otro que agrega valor'},
+     {q:'Medios de transporte',a:'Marítimo · terrestre (carretero y ferroviario) · aéreo · multimodal'},
+     {q:'Ventajas y desventajas del marítimo',a:'+ Mayor volumen, grandes distancias, menos costoso, flexible y versátil · − El más lento, el de más siniestros'},
+     {q:'Ventajas y desventajas del aéreo',a:'+ El más rápido, urgencias y perecederos, alto valor y poco volumen, seguro más barato · − Elevado costo, poca capacidad'},
+     {q:'Ventajas y desventajas del carretero',a:'+ Puerta a puerta, flexible, facilidad de coordinación · − Carga pequeña, más accidentes (seguro caro)'},
+     {q:'Ventajas y desventajas del ferroviario',a:'+ Más capacidad y menos costoso que el camión · − Limitado a la red, no es puerta a puerta, lento'},
+     {q:'Regla general de los medios',a:'A mayor costo, mayor seguridad y menor tiempo'},
+     {q:'Línea regular',a:'Itinerario fijo y precios fijados; puede ser conferenciado, outsider o consorcio'},
+     {q:'Fletamento o tramp',a:'Sin itinerario ni precio fijo; libre competencia'},
+     {q:'¿Qué es un buque de línea?',a:'El más genérico; lleva bultos chicos y mercadería paletizada'},
+     {q:'Tipos de buque',a:'De línea · tanque · granelero · mineralero · petrolero · químico · gases líquidos · portacontenedores · portabarcazas · roll on / roll off'},
+     {q:'¿Qué es el transporte multimodal?',a:'Traslado por dos o más medios con un solo operador y un único documento'},
+     {q:'¿Qué fomentó el transporte multimodal?',a:'El contenedor'},
+     {q:'¿Qué es el seguro?',a:'Contrato en el que un asegurador se compromete a resarcir a un asegurado económicamente en caso de un siniestro a cambio del pago de una prima'},
+     {q:'Asegurador y asegurado',a:'Asegurador: comprometido a resarcir el daño a cambio de una prima. Asegurado: titular del interés asegurable'},
+     {q:'Riesgo',a:'Hecho futuro incierto ajeno a la voluntad del asegurado'},
+     {q:'Interés asegurable',a:'Relación económica entre el titular y el bien amenazado'},
+     {q:'Tomador y beneficiario',a:'Tomador: quien firma el contrato. Beneficiario: quien recibe la indemnización'},
+     {q:'Prima y siniestro',a:'Prima: pago por transferir el riesgo. Siniestro: evento que genera el daño'},
+     {q:'Tipos de seguro',a:'Seguro de carga · de crédito a la exportación · de caución'},
+     {q:'Coberturas marítimas de importación',a:'CTR · LAP (libre de avería particular) · CA (con avería, con restricciones)'},
+     {q:'Coberturas marítimas de exportación',a:'Cláusula A: CTR · B: LAP · C: LAP para acontecimientos excepcionales (catástrofes naturales)'},
+     {q:'Coberturas del aéreo',a:'CTR (todo lo aeronáutico) · guerra · huelga · gastos de salvamento'},
+     {q:'Coberturas del terrestre',a:'Básico · básico + adicionales (hurto, extravío, merc. dañada) · CTR'},
+     {q:'Avería particular vs. gruesa',a:'Particular: daño de merc. de un solo asegurado. Gruesa: de varios asegurados a la vez, por la necesidad de la circunstancia'},
+     {q:'Seguro de crédito a la exportación',a:'Protege al exportador que vende con pago diferido si el importador no paga. Riesgos comerciales (quiebra, convocatoria, atrasos) y políticos (ajenos a comprador y vendedor)'},
+     {q:'Seguro de caución',a:'Lo presentan imp. y exp. ante la aduana para garantizar los tributos que pagan después, en caso de insolvencia. Beneficiario: la aduana. Vigencia abierta'}
+   ]},
+   {u:'Unidad 6 · Bancos',c:'var(--brand)',items:[
+     {q:'¿Qué es la letra de cambio?',a:'Documento que avala un crédito: la emite el exportador (librador) a través del banco y el importador (librado) la firma y asume el compromiso de pago'},
+     {q:'Secuencia de la letra de cambio',a:'1 Contrato de compraventa · 2 Envío de documentos y mercadería por el banco del exp. · 3 El exp. emite la letra · 4 El imp. la firma · 5 Vuelve al banco del exp. como garantía · 6 El imp. paga en la fecha pactada'},
+     {q:'¿Qué es la orden de pago?',a:'Transferencia por canal SWIFT que ordena el importador a su banco para pagarle al exportador; además de dinero se envían instrucciones. Se usa con confianza y habitualidad'},
+     {q:'Secuencia de la orden de pago',a:'1 El exp. envía mercadería y documentos sin condicionamiento · 2 El imp. ordena a su banco (emisor) transferir al banco del exp. (pagador), que le acredita'},
+     {q:'¿Qué es la cobranza?',a:'La inicia el exportador: genera el cobro de valores con el compromiso de ejecutar ciertas instrucciones (envío de documentos contra recibo de dinero)'},
+     {q:'¿Qué es una remesa?',a:'Entrega de dinero a condición de entrega de documentos'},
+     {q:'Secuencia de la cobranza',a:'1 El exp. manda la mercadería · 2 Entrega los documentos a su banco (remitente) · 3 Remesa al banco del imp. · 4 El imp. paga y recibe los documentos · 5 El dinero va al banco del exp., que le acredita'},
+     {q:'¿Quién inicia cada instrumento?',a:'Letra de cambio y cobranza: el exportador · Orden de pago: el importador'}
+   ]}
+  ];
+  const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;};
+  const flat=EC.flatMap(t=>t.items.map(it=>({...it,u:t.u,c:t.c})));
+
+  /* ---- QUIZ ---- */
+  let quiz=[],qi=0,qscore=0;
+  function buildQuiz(){
+    quiz=shuffle(EC.flatMap(t=>t.items.map(it=>{
+      let pool=t.items.filter(x=>x.a!==it.a).map(x=>x.a);
+      if(pool.length<3)pool=pool.concat(shuffle(flat.filter(x=>x.u!==t.u).map(x=>x.a)));
+      return {u:t.u,c:t.c,q:it.q,correct:it.a,options:shuffle([it.a,...shuffle(pool).slice(0,3)])};
+    })));
+    qi=0;qscore=0;document.getElementById('q-total').textContent=quiz.length;renderQ();
+  }
+  function renderQ(){
+    document.getElementById('q-idx').textContent=qi+1;
+    document.getElementById('q-score').textContent=qscore;
+    const it=quiz[qi],card=document.getElementById('quiz-card');
+    card.style.setProperty('--accent',it.c);
+    card.innerHTML='<div class="qgroup">'+it.u+'</div><div class="qq">'+it.q+'</div><div id="opts">'+it.options.map((o,i)=>'<button class="opt" data-i="'+i+'">'+o+'</button>').join('')+'</div><div class="fb" id="fb"></div><div class="qactions"><button class="btn hidden" id="q-next">Siguiente →</button></div>';
+    const opts=card.querySelectorAll('.opt');
+    opts.forEach(b=>b.addEventListener('click',()=>{
+      const ok=it.options[+b.dataset.i]===it.correct;
+      opts.forEach(x=>{x.disabled=true;if(it.options[+x.dataset.i]===it.correct){x.classList.add('correct');x.innerHTML+=' <span class="mk">✓</span>';}});
+      const fb=document.getElementById('fb');
+      if(ok){qscore++;fb.textContent='¡Correcto!';fb.className='fb ok';}
+      else{b.classList.add('wrong');b.innerHTML+=' <span class="mk">✕</span>';fb.textContent='La respuesta correcta es la marcada en verde.';fb.className='fb no';}
+      document.getElementById('q-score').textContent=qscore;
+      const n=document.getElementById('q-next');n.classList.remove('hidden');
+      n.textContent=qi+1<quiz.length?'Siguiente →':'Ver resultado';
+      n.onclick=()=>{qi+1<quiz.length?(qi++,renderQ()):resultQ();};
+    }));
+  }
+  function resultQ(){
+    const pct=Math.round(qscore/quiz.length*100),card=document.getElementById('quiz-card');
+    card.style.setProperty('--accent','var(--brand)');
+    card.innerHTML='<div class="qgroup">Resultado</div><div class="qq">'+qscore+'/'+quiz.length+' · '+pct+'%</div><p style="color:var(--ink-soft);margin-bottom:20px">'+(pct>=80?'Te lo sabés.':pct>=50?'Vas bien; repasá las que fallaste.':'Volvé al Resumen y reintentá.')+'</p><div class="qactions"><button class="btn" id="q-again">Reintentar</button></div>';
+    document.getElementById('q-idx').textContent=quiz.length;
+    document.getElementById('q-again').onclick=buildQuiz;
+  }
+
+  /* ---- ESCRIBIR ---- */
+  let esc=[],ei=0,escore=0;
+  function buildEsc(){esc=shuffle(flat);ei=0;escore=0;document.getElementById('e-total').textContent=esc.length;renderE();}
+  function renderE(){
+    document.getElementById('e-idx').textContent=ei+1;
+    document.getElementById('e-score').textContent=escore;
+    const it=esc[ei],card=document.getElementById('esc-card');
+    card.style.setProperty('--accent',it.c);
+    card.innerHTML='<div class="qgroup">'+it.u+'</div><div class="qq">'+it.q+'</div><textarea id="e-input" class="esc-input" placeholder="Escribí tu respuesta de memoria…  (Ctrl+Enter para revelar)" spellcheck="false"></textarea><div class="qactions"><button class="btn" id="e-reveal">Revelar respuesta</button></div><div id="e-answer" class="esc-answer hidden"></div>';
+    const ta=document.getElementById('e-input');ta.focus();
+    function reveal(){
+      if(ta.disabled)return;
+      const yours=(ta.value.trim()||'(no escribiste nada)').replace(/&/g,'&amp;').replace(/</g,'&lt;');
+      const ans=document.getElementById('e-answer');
+      ans.innerHTML='<div class="esc-yours"><span class="esc-lbl">Lo que escribiste</span><p>'+yours+'</p></div><div class="esc-ok"><span class="esc-lbl">La respuesta</span><p class="ans">'+it.a+'</p></div><div class="esc-rate">¿Te salió de memoria?<button class="rate" data-r="1">Sí</button><button class="rate" data-r="m">Más o menos</button><button class="rate" data-r="0">No</button></div>';
+      ans.classList.remove('hidden');
+      document.getElementById('e-reveal').disabled=true;ta.disabled=true;
+      ans.querySelectorAll('.rate').forEach(b=>b.addEventListener('click',()=>{if(b.dataset.r==='1')escore++;ei+1<esc.length?(ei++,renderE()):resultE();}));
+      ans.scrollIntoView({behavior:'smooth',block:'nearest'});
+    }
+    ta.addEventListener('keydown',e=>{if((e.ctrlKey||e.metaKey)&&e.key==='Enter')reveal();});
+    document.getElementById('e-reveal').addEventListener('click',reveal);
+  }
+  function resultE(){
+    document.getElementById('e-idx').textContent=esc.length;
+    document.getElementById('e-score').textContent=escore;
+    const card=document.getElementById('esc-card');card.style.setProperty('--accent','var(--brand)');
+    card.innerHTML='<div class="qgroup">Resultado</div><div class="qq">'+escore+'/'+esc.length+' de memoria</div><div class="qactions"><button class="btn" id="e-again">Reintentar</button></div>';
+    document.getElementById('e-again').onclick=buildEsc;
+  }
+
+  /* ---- NAVEGACIÓN DE MODOS ---- */
+  const views={resumen:document.getElementById('view-resumen'),completo:document.getElementById('view-completo'),quiz:document.getElementById('view-quiz'),escribir:document.getElementById('view-escribir')};
+  document.getElementById('modes').addEventListener('click',e=>{
+    const b=e.target.closest('button');if(!b)return;
+    document.querySelectorAll('#modes button').forEach(x=>x.classList.remove('active'));
+    b.classList.add('active');
+    const m=b.dataset.mode;
+    Object.entries(views).forEach(([k,el])=>el.classList.toggle('hidden',k!==m));
+    document.getElementById('navchips').style.display=m==='resumen'?'':'none';document.getElementById('navchips-c').style.display=m==='completo'?'':'none';
+    if(m==='quiz'&&!quiz.length)buildQuiz();
+    if(m==='escribir'&&!esc.length)buildEsc();
+    window.scrollTo({top:0,behavior:'smooth'});
+  });
+  document.getElementById('q-restart').addEventListener('click',buildQuiz);
+  document.getElementById('e-restart').addEventListener('click',buildEsc);
+</script>
+</body>
+</html>
